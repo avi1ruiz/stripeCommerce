@@ -12,7 +12,7 @@ export class ProductService {
   ): Promise<void> => {
     try {
       const products = <IProduct[]>await this.repository.list();
-      res.json(products);
+      res.render("pages/index.hbs", { products });
     } catch (error) {
       next(error);
     }

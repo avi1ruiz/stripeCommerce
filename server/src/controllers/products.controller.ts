@@ -5,15 +5,15 @@ import { ProductService } from "../services/products.services";
 const router: Router = Router();
 const service = new ProductService(new MySQLRepository());
 // Rutas corresponden a las acciones de un CRUD Tipico
-router.get("", service.index);
+router.get("/", service.index);
 router.get("/:id", service.show);
 
-router.get("", service.edit);
-router.post("", service.create);
+router.get("/edit", service.create);
+router.post("/edit/:id", service.store);
 
-router.delete("/:id", service.destroy);
+router.delete("/destroy/:id", service.destroy);
 
-router.get("/:id", service.edit);
-router.put("/:id", service.update);
+router.get("/edit/:id", service.edit);
+router.put("/edit/:id", service.update);
 
 export default router;
