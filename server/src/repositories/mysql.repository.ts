@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { IProduct } from "../models/product.model";
-import { CrudRepository } from "../libs/IRepository";
+import { CrudRepository } from "../libs/IRepositories";
 import pool from "../configuration/mysql.database";
 
 export class MySQLRepository implements CrudRepository<IProduct> {

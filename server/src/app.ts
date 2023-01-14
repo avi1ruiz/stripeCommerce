@@ -3,6 +3,7 @@ import { create } from "express-handlebars";
 import morgan from "morgan";
 import enviroments from "./enviroment";
 import routerProduct from "./controllers/products.controller";
+import routerPayment from "./controllers/payment.controller"
 import { join } from "path";
 
 // Inicializar express
@@ -29,6 +30,7 @@ app.set("view engine", ".hbs");
 
 // Definen las rutas
 app.use(routerProduct);
+app.use(routerPayment);
 
 app.use(function (req: Request, res: Response) {
   res.status(404).render("404.hbs")

@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { CrudRepository } from "../libs/IRepository";
+import { CrudRepository } from "../libs/IRepositories";
 import { IProduct } from "../models/product.model";
 
 export class ProductService {
@@ -34,7 +34,11 @@ export class ProductService {
     }
   };
 
-  show = async (req: Request, res: Response, next: NextFunction) => {
+  show = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> => {
     try {
       const id: string = req.params.id;
       res.json(await this.repository.show(id));
@@ -45,7 +49,11 @@ export class ProductService {
 
   edit = () => {};
 
-  update = async (req: Request, res: Response, next: NextFunction) => {
+  update = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> => {
     try {
       const id: string = req.params.id;
       const { name, price, photo }: Partial<IProduct> = req.body;
@@ -60,7 +68,11 @@ export class ProductService {
     }
   };
 
-  destroy = async (req: Request, res: Response, next: NextFunction) => {
+  destroy = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> => {
     try {
       const id: string = req.params.id;
       await this.repository.destroy(id);

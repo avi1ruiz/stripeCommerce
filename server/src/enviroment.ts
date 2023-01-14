@@ -17,6 +17,9 @@ const enviroments = {
     USER: process.env.MYSQL_USER,
     PASSWORD: process.env.MYSQL_PASSWORD,
   },
+  STRIPE: {
+    SECRET_KEY: process.env.STRIPE_SECRET_KEY
+  }
 };
 
 export default enviroments;
